@@ -7,10 +7,15 @@ import java.util.Scanner;
 
 public class AdopetConsoleApplication {
 
-    public static void main(String[] args) {
-        AbrigoService abrigoService = new AbrigoService();
-        PetService petService = new PetService();
+    private static AbrigoService abrigoService;
+    private static PetService petService;
 
+    public AdopetConsoleApplication(AbrigoService abrigoService, PetService petService) {
+        this.abrigoService = abrigoService;
+        this.petService = petService;
+    }
+
+    public static void main(String[] args) {
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
             int opcaoEscolhida = 0;
