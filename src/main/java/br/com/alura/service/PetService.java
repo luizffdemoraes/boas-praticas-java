@@ -14,8 +14,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-import static br.com.alura.service.AbrigoService.dispararRequisicaoGet;
-
 public class PetService {
 
     public void importarPetsDoAbrigo() throws IOException, InterruptedException {
@@ -68,7 +66,7 @@ public class PetService {
         reader.close();
     }
 
-    public static void listarPetsDoAbrigo() throws IOException, InterruptedException {
+    public void listarPetsDoAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o id ou nome do abrigo:");
         String idOuNome = new Scanner(System.in).nextLine();
 
@@ -93,5 +91,20 @@ public class PetService {
         }
     }
 
+    private  HttpResponse<String> dispararRequisicaoGet(HttpClient client, String uri) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        return client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
 
+    private  HttpResponse<String> dispararRequisicaoPost(HttpClient client, String uri, JsonObject json) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .header("Content-Type", "application/json")
+                .method("POST", HttpRequest.BodyPublishers.ofString(json.toString()))
+                .build();
+        return client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
 }
