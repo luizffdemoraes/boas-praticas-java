@@ -2,12 +2,16 @@ package br.com.alura.service;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.domain.Abrigo;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.net.http.HttpResponse;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class AbrigoService {
@@ -18,21 +22,21 @@ public class AbrigoService {
         this.clientHttp = clientHttp;
     }
 
-    public   void listarAbrigo() throws IOException, InterruptedException {
+    public void listarAbrigo() throws IOException, InterruptedException {
         String uri = "http://localhost:8080/abrigos";
-        var response = clientHttp.dispararRequisicaoGet(uri);
+        HttpResponse<String> response = clientHttp.dispararRequisicaoGet(uri);
         String responseBody = response.body();
-        JsonArray jsonArray = JsonParser.parseString(responseBody).getAsJsonArray();
+        Abrigo[] abrigos = new ObjectMapper().readValue(responseBody, Abrigo[].class);
+        List<Abrigo> abrigoList = Arrays.stream(abrigos).toList();
         System.out.println("Abrigos cadastrados:");
-        for (JsonElement element : jsonArray) {
-            JsonObject jsonObject = element.getAsJsonObject();
-            long id = jsonObject.get("id").getAsLong();
-            String nome = jsonObject.get("nome").getAsString();
-            System.out.println(id +" - " +nome);
+        for (Abrigo abrigo : abrigoList) {
+            long id = abrigo.getId();
+            String nome = abrigo.getNome();
+            System.out.println(id + " - " + nome);
         }
     }
 
-    public  void cadastrarAbrigo() throws IOException, InterruptedException {
+    public void cadastrarAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o nome do abrigo:");
         String nome = new Scanner(System.in).nextLine();
         System.out.println("Digite o telefone do abrigo:");
