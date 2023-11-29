@@ -11,11 +11,7 @@ import java.net.http.HttpResponse;
 
 public class ClientHttpConfiguration {
 
-    private HttpClient client;
-
-    public ClientHttpConfiguration(HttpClient client){
-        this.client = client;
-    }
+    private HttpClient client = HttpClient.newBuilder().build();
 
     public HttpResponse<String> dispararRequisicaoGet(String uri) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
