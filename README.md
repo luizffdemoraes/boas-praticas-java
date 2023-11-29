@@ -23,3 +23,9 @@ java -jar api.jar
 * Aprendemos que o S do acrônimo SOLID significa Single Responsability Principle, em português, princípio da responsabilidade única, ou seja, uma classe deve ter um, e somente um, motivo para mudar;
 * Separamos nosso código em classes para que ficassem coesas e com apenas uma responsabilidade;
 * Criamos classes de configurações para reaproveitá-las nas classes de serviço, evitando assim código duplicado.
+
+## 03. Criando Dominios
+
+* Aprendemos a criar classes de domínio, que são classes que representam "coisas" do mundo real;
+* Conhecemos a biblioteca Jackson, que auxilia na serialização e deserialização de objetos fornecendo recursos para transformar um objeto Json em um objeto Java e vice-versa;
+* Testamos nossa aplicação, após todas as refatorações, para garantir que a mesma continua funcional.
