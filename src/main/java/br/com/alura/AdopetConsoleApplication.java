@@ -8,19 +8,8 @@ import java.util.Scanner;
 
 public class AdopetConsoleApplication {
 
-    private static AbrigoService abrigoService;
-    private static PetService petService;
-
-    public AdopetConsoleApplication(AbrigoService abrigoService, PetService petService) {
-        this.abrigoService = abrigoService;
-        this.petService = petService;
-    }
-
     public static void main(String[] args) {
         CommandExecutor executor = new CommandExecutor();
-        ClientHttpConfiguration client = new ClientHttpConfiguration();
-        PetService petService = new PetService(client);
-
 
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
@@ -41,9 +30,9 @@ public class AdopetConsoleApplication {
                 } else if (opcaoEscolhida == 2) {
                     executor.executeCommand(new CadastrarAbrigoCommand());
                 } else if (opcaoEscolhida == 3) {
-                    petService.listarPetsDoAbrigo();
+                    executor.executeCommand(new ListarPetsDoAbrigoCommand());
                 } else if (opcaoEscolhida == 4) {
-                    petService.importarPetsDoAbrigo();
+                    executor.executeCommand(new ImportarPetsDoAbrigoCommand());
                 } else if (opcaoEscolhida == 5) {
                     break;
                 } else {
