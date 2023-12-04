@@ -36,3 +36,8 @@ java -jar api.jar
 * Aprendemos o que são testes automatizados e o quanto eles podem auxiliar no feedback da aplicação, bem como na validação dos cenários;
 * Criamos um teste de unidade, que valida o retorno do método listarAbrigo;
 * Conhecemos a biblioteca junit, que fornece recursos para criarmos testes de unidade e a biblioteca mockito, que fornece recursos para simulação de objetos.
+
+## 05. Padrões de Projetos
+
+* Aprendemos o padrão Command, que visa encapsular uma solicitação como um objeto, o que lhe permite parametrizar outros objetos com diferentes solicitações.
+* Melhoramos nosso código usando o switch expressions, permitindo trocar os if’s e else’s que tornavam a classe AdopetConsoleApplication difícil de ler.
