@@ -29,3 +29,10 @@ java -jar api.jar
 * Aprendemos a criar classes de domínio, que são classes que representam "coisas" do mundo real;
 * Conhecemos a biblioteca Jackson, que auxilia na serialização e deserialização de objetos fornecendo recursos para transformar um objeto Json em um objeto Java e vice-versa;
 * Testamos nossa aplicação, após todas as refatorações, para garantir que a mesma continua funcional.
+
+
+## 04. Testes Automatizados
+
+* Aprendemos o que são testes automatizados e o quanto eles podem auxiliar no feedback da aplicação, bem como na validação dos cenários;
+* Criamos um teste de unidade, que valida o retorno do método listarAbrigo;
+* Conhecemos a biblioteca junit, que fornece recursos para criarmos testes de unidade e a biblioteca mockito, que fornece recursos para simulação de objetos.
