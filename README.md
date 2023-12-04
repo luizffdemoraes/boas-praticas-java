@@ -41,3 +41,6 @@ java -jar api.jar
 
 * Aprendemos o padrão Command, que visa encapsular uma solicitação como um objeto, o que lhe permite parametrizar outros objetos com diferentes solicitações.
 * Melhoramos nosso código usando o switch expressions, permitindo trocar os if’s e else’s que tornavam a classe AdopetConsoleApplication difícil de ler.
+
+### Pattern Matching for switch Expressions and Statements
+https://docs.oracle.com/en/java/javase/17/language/pattern-matching-switch-expressions-and-statements.html#GUID-E69EEA63-E204-41B4-AA7F-D58B26A3B232
